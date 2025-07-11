@@ -1,4 +1,3 @@
-# main.py
 from fastapi import FastAPI
 from config import settings
 from db import collection
