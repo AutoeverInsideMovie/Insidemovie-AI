@@ -4,8 +4,8 @@ LABELS_7 = [
     "happiness", "sadness", "anger", "surprise", "disgust", "fear", "neutral"
 ]
 LABELS_6 = [
-    "happiness", "sadness", "anger", "surprise", "fear", "neutral"
+    "anger", "fear", "happiness", "neutral", "sadness", "surprise"
 ]
-LABLES_5 = [
-    "happiness", "sadness", "anger", "fear", "neutral"
+LABELS_5 = [
+    "anger", "fear", "happiness", "neutral", "sadness"
 ]
