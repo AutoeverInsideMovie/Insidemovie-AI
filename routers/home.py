@@ -1,4 +1,3 @@
-# routers/home.py
 from fastapi import APIRouter
 from config import settings
 
