@@ -1,7 +1,7 @@
 import torch
 from transformers import AutoModelForSequenceClassification
 from kobert_tokenizer import KoBERTTokenizer
-from const import LABELS_7
+from const import LABELS_7, LABELS_6, LABELS_5
 from config import settings
 
 _tokenizer = KoBERTTokenizer.from_pretrained(settings.model_dir)
@@ -13,4 +13,4 @@ def predict_emotions(text: str) -> dict[str, float]:
     with torch.no_grad():
         outputs = _model(**inputs)
         probs = torch.softmax(outputs.logits[0], dim=-1)
-    return { LABELS_7[i]: float(probs[i]) for i in range(len(LABELS_7)) }
+    return { LABELS_5[i]: float(probs[i]) for i in range(len(LABELS_5)) }
