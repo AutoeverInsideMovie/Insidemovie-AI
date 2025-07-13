@@ -42,13 +42,16 @@ def _predict_batch(texts: list[str]) -> list[dict[str, float]]:
     ]
 
 
+def _format_percent(probs: dict[str, float]) -> dict[str, float]:
+    return {label: round(probs[label] * 100, 2) for label in LABELS_5}
+
 def predict_emotion_split_avg(text: str) -> dict[str, float]:
     sentences = [s.strip() for s in text.split('.') if s.strip()]
     if not sentences:
         sentences = [text.strip()]
-
-    probs_list = _predict_batch(sentences)
-    return get_avg_emotion(probs_list)
+    raw_probs = _predict_batch(sentences)
+    avg_raw = get_avg_emotion(raw_probs)
+    return _format_percent(avg_raw)
 
 
 def predict_emotion_overall_avg(text: str) -> dict[str, float]:
@@ -56,11 +59,11 @@ def predict_emotion_overall_avg(text: str) -> dict[str, float]:
     if not sentences:
         sentences = [text.strip()]
     all_texts = [text.strip()] + sentences
-
-    probs_list = _predict_batch(all_texts)
-    return get_avg_emotion(probs_list)
+    raw_probs = _predict_batch(all_texts)
+    avg_raw = get_avg_emotion(raw_probs)
+    return _format_percent(avg_raw)
 
 
 def predict_emotion_full(text: str) -> dict[str, float]:
-    [prob] = _predict_batch([text.strip()])
-    return prob
+    [raw] = _predict_batch([text.strip()])
+    return _format_percent(raw)
