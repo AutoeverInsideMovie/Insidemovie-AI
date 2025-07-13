@@ -1,7 +1,7 @@
 import torch
 from transformers import AutoModelForSequenceClassification
 from kobert_tokenizer import KoBERTTokenizer
-from const import LABELS_7, LABELS_6, LABELS_5
+from const import LABELS_5
 from config import settings
 
 _tokenizer = KoBERTTokenizer.from_pretrained(settings.model_dir)
