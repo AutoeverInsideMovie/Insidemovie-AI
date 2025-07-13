@@ -51,11 +51,3 @@ async def predict_overall_avg(item: TextItem):
         return record
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-@router.get("/history", response_model=list[Prediction])
-async def list_predictions(limit: int = 20):
-    cursor = collection.find().sort("timestamp", -1).limit(limit)
-    results = []
-    async for doc in cursor:
-        results.append(Prediction(**doc))
-    return results
