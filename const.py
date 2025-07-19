@@ -3,6 +3,10 @@
 LABELS_6 = [
     "anger", "fear", "joy", "neutral", "sadness", "surprise"
 ]
+# LABELS_5 = [
+#     "anger", "fear", "joy", "neutral", "sadness"
+# ]
+
 LABELS_5 = [
-    "anger", "fear", "joy", "neutral", "sadness"
+    "anger", "disgust", "fear", "joy", "sadness"
 ]

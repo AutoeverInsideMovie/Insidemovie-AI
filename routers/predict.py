@@ -6,7 +6,6 @@ from services.prediction import (
     predict_emotion_split_avg,
     predict_emotion_overall_avg,
 )
-from db import collection
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
 
