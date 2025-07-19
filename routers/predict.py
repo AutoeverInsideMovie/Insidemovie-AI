@@ -6,7 +6,6 @@ from services.prediction import (
     predict_emotion_split_avg,
     predict_emotion_overall_avg,
 )
-from db import collection
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
 
@@ -19,7 +18,7 @@ async def predict_full(item: TextItem):
             "probabilities": probs,
             "timestamp": datetime.utcnow()
         }
-        await collection.insert_one(record)
+        # await collection.insert_one(record)
         return record
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -33,7 +32,7 @@ async def predict_split_avg(item: TextItem):
             "probabilities": probs,
             "timestamp": datetime.utcnow()
         }
-        await collection.insert_one(record)
+        # await collection.insert_one(record)
         return record
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -47,7 +46,7 @@ async def predict_overall_avg(item: TextItem):
             "probabilities": probs,
             "timestamp": datetime.utcnow()
         }
-        await collection.insert_one(record)
+        # await collection.insert_one(record)
         return record
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
