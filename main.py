@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
+
 from config import settings
 from routers.home import router as home_router
 from routers.predict import router as predict_router

@@ -1,8 +1,7 @@
 # TODO: 데이터 저장하기(mongo or mysql)
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
-
 import requests
+from fastapi import APIRouter
+from pydantic import BaseModel
 
 router = APIRouter(
   prefix = "/review",
